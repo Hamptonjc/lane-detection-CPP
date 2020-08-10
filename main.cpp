@@ -86,9 +86,6 @@ void drawLines(cv::Mat img, std::vector<cv::Vec4f> lines, int thickness = 5){
 	float left_slope_avg = vectorAverage(leftSlope);
 	float right_slope_avg = vectorAverage(rightSlope);
 
-	// for video write functionality to average slopes and intercepts over 30 frames
-
-	//try{
 	int left_line_x1 = (int)std::round((0.65*img.rows - left_intercept_avg)/left_slope_avg);
 	int left_line_x2 = (int)std::round((img.rows - left_intercept_avg)/left_slope_avg);
 	int right_line_x1 = (int)std::round((0.65*img.rows - right_intercept_avg)/right_slope_avg);
@@ -104,9 +101,6 @@ void drawLines(cv::Mat img, std::vector<cv::Vec4f> lines, int thickness = 5){
 	cv::fillPoly(img, inner_shape,n_vertices,1,cv::Scalar(255,0,0),lineType);
 	cv::line(img, cv::Point(left_line_x1, (int)std::round(0.65*img.rows)), cv::Point(left_line_x2, img.rows), left_color, 10);
 	cv::line(img, cv::Point(right_line_x1, (int)std::round(0.65*img.rows)), cv::Point(right_line_x2, img.rows), right_color, 10);
-	//catch(){
-		//std::cout<<"function drawlines try block not executed"<<std::endl;
-
 };
 
 cv::Mat hough_lines(cv::Mat img, double rho, double theta, int threshold, double min_line_len,double max_line_gap){
