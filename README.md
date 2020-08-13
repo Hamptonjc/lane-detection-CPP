@@ -1,6 +1,6 @@
 # Simple Lane Detection With C++/OpenCV
 
-A simple lane detection program written in C++ and OpenCV.
+A simple lane detection program written in C++ with OpenCV.
 
 ## Requirements
 - CMake 3.17.2+
